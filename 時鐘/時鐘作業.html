@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #back {
+      width: 2000px;
+      height: 1000px;
+      background: yellow;
+      position: absolute;
+      z-index: -6;
+
+    }
+
+
+    #clock {
+      background: #68c6e8;
+      width: 300px;
+      height: 300px;
+      margin: auto;
+      position: relative;
+      border-radius: 50%;
+      top: calc(50vh - 150px);
+      z-index: -4;
+      border: 2px solid black;
+
+    }
+
+    #hour {
+      width: 60%;
+      height: 30px;
+      background: blue;
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 16px);
+      border-radius: 15px;
+      transform-origin: left center;
+      border: 2px solid black;
+
+    }
+
+    #hour .lh {
+      width: 100px;
+      height: 100px;
+      background: white;
+      position: absolute;
+      border-radius: 50%;
+      top: calc(50% - 50px);
+      left: calc(50% + 50px);
+      transform-origin: left center;
+      border: 2px solid black;
+
+    }
+
+
+
+    #minute {
+      width: 80%;
+      height: 20px;
+      background: dodgerblue;
+      position: absolute;
+      top: calc(50% - 10px);
+      left: calc(50% - 10px);
+      border-radius: 5px;
+      transform-origin: left center;
+      border: 2px solid black;
+    }
+
+
+
+    #minute .rh {
+
+      width: 100px;
+      height: 100px;
+      background: white;
+      position: absolute;
+      border-radius: 50%;
+      top: calc(50% - 50px);
+      left: calc(50% + 100px);
+      transform-origin: left center;
+      z-index: 1;
+      border: 2px solid black;
+    }
+
+    #second {
+      width: 40%;
+      height: 6px;
+      background: #F5006F;
+      position: absolute;
+      top: calc(50% - 3px);
+      left: calc(50% - 3px);
+      border-radius: 5px;
+      transform-origin: left center;
+    }
+
+    #hcircle {
+      width: 160px;
+      height: 160px;
+      background-image: linear-gradient(to top, white 50%, #68c6e8 50%);
+      position: absolute;
+      top: calc(50% - 80px);
+      left: calc(50% - 80px);
+      border-radius: 50%;
+      transform-origin: left center;
+      z-index: -1;
+
+
+
+    }
+
+    #k2 {
+      position: absolute;
+      color: black;
+      top: 50px;
+      left: 240px;
+      font-size: 2.5rem;
+
+
+    }
+
+    #hours {
+      position: absolute;
+      color: #68c6e8;
+      top: 50px;
+      left: 240px;
+      font-size: 2.5rem;
+      border: 2px solid black;
+
+
+
+    }
+
+    #head {
+      position: absolute;
+      margin: auto;
+      top: -340px;
+      left: -70px;
+      z-index: -3;
+    }
+
+    #rft {
+      position: absolute;
+      margin: auto;
+      width: 100px;
+      height: 70px;
+      border-radius: 50px;
+      background: white;
+      top: 265px;
+      left: 170px;
+      border: 2px solid black;
+      z-index: -2;
+
+    }
+
+    #lft {
+      position: absolute;
+      margin: auto;
+      width: 100px;
+      height: 70px;
+      border-radius: 50px;
+      background: white;
+      top: 265px;
+      left: 25px;
+
+      border: 2px solid black;
+    }
+
+    #position {
+      position: absolute;
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: white;
+      top: 130px;
+      left: 120px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="back"></div>
+
+
+
+  <div id="clock">
+    <div id="hour">
+      <div class="lh"></div>
+    </div>
+    <div id="minute">
+      <div class="rh"></div>
+    </div>
+    <div id="second"></div>
+    <div id="hcircle"></div>
+    <div id="k2">2</div>
+    <div id="lft"></div>
+    <div id="rft"></div>
+
+
+    <div id="position"></div>
+    <div id="head"><img src="./123.png" width="450px" height="450px"></div>
+
+
+  </div>
+
+  <script>
+    const hour = document.getElementById('hour')
+    const minute = document.getElementById('minute')
+    const second = document.getElementById('second')
+
+
+
+
+
+    setInterval(() => {
+      const date = new Date()
+      hour.style.transform = `rotate(${date.getHours() * 30 - 90}deg)`
+      minute.style.transform = `rotate(${date.getMinutes() * 6 - 90}deg)`
+      second.style.transform = `rotate(${date.getSeconds() * 6 - 90}deg)`
+    }, 1000)
+
+  </script>
+</body>
+
+</html>
